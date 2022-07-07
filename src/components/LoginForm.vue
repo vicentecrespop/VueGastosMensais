@@ -41,7 +41,7 @@ export default {
 
             const jsonData = JSON.stringify(data)
 
-            await fetch('http://localhost:3000/api/auth/login', {
+            await fetch('https://nodegastosmensais.herokuapp.com/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-type': 'application/json' },
                 body: jsonData
@@ -102,6 +102,12 @@ export default {
     .input-container input {
         padding: 10px;
         border: 1px solid #e8e8e8;
+    }
+
+    .input-container input:focus {
+        outline: 0;
+        border: 2px solid #25282E;
+        box-shadow: 0 0 0 0 ;
     }
 
     input[type="submit"] {

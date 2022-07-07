@@ -32,7 +32,7 @@ export default {
             // pegar token do usuario
             const token = this.$store.getters.token
 
-            await fetch('http://localhost:3000/api/gasto', {
+            await fetch('https://nodegastosmensais.herokuapp.com/api/gasto', {
                 method: 'GET',
                 headers: {
                     'Content-type': 'application/json',

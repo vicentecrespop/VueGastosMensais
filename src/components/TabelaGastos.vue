@@ -47,7 +47,7 @@ export default {
 
             const jsonData = JSON.stringify(data)
 
-            await fetch('http://localhost:3000/api/gasto', {
+            await fetch('https://nodegastosmensais.herokuapp.com/api/gasto', {
                 method: 'DELETE',
                 headers: {
                     'Content-type': 'application/json',

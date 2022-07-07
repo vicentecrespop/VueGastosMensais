@@ -108,7 +108,7 @@ export default {
             // pegar token da store
             const token = this.$store.getters.token
 
-            await fetch("http://localhost:3000/api/user", {
+            await fetch("https://nodegastosmensais.herokuapp.com/api/user", {
                 method: "PATCH",
                 headers: { 
                     "Content-type": "application/json",
@@ -168,6 +168,12 @@ export default {
     .input-container input {
         padding: 10px;
         border: 1px solid #e8e8e8;
+    }
+    
+    .input-container input:focus {
+        outline: 0;
+        border: 2px solid #25282E;
+        box-shadow: 0 0 0 0 ;
     }
 
     input[type="submit"] {

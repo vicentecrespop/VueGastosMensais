@@ -63,7 +63,7 @@ export default {
             // pegar token
             const token = this.$store.getters.token
 
-            await fetch('http://localhost:3000/api/gasto', {
+            await fetch('https://nodegastosmensais.herokuapp.com/api/gasto', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json',
@@ -127,7 +127,7 @@ export default {
     .input-container input:focus,
     .input-container select:focus {
         outline: 0;
-        border: 2px solid aquamarine;
+        border: 2px solid #25282E;
         box-shadow: 0 0 0 0 ;
     }
 

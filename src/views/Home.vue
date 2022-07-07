@@ -72,7 +72,7 @@ export default {
             // pegar token do usuario
             const token = this.$store.getters.token
 
-            await fetch('http://localhost:3000/api/gasto/mes', {
+            await fetch('https://nodegastosmensais.herokuapp.com/api/gasto/mes', {
                 method: 'GET',
                 headers: {
                     'Content-type': 'application/json',
@@ -170,7 +170,7 @@ export default {
   }
 
   .input-container select:focus {
-      border: 2px solid aquamarine;
+      border: 2px solid #25282E;
   }
 
   .input-container select option {
