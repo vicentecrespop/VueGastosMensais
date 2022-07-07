@@ -1,7 +1,7 @@
 <template>
     <footer>
         <h3>Gastos Mensais &copy; 2022</h3>
-        <p>O melhor local para cadastrar seus gastos!</p>
+        <p>Criado por Vicente Crespo</p>
     </footer>
 </template>
 
@@ -14,7 +14,7 @@ export default {
 <style scoped>
     footer {
         background-color: #25282E;
-        height: 300px;
+        height: 150px;
         display: flex;
         align-items: center;
         justify-content: center;
