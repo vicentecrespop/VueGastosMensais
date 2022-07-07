@@ -127,6 +127,19 @@ export default {
         background-color: #C82333;
     }
 
+    .data-price-container,
+    .data-title-container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        overflow: scroll;
+        margin-right: 10px;
+    }
+
+    .data-type-container {
+        margin-right: 10px;
+    }
+
     @media (max-width: 700px) {
       .data-container,
       .remove-btn {
