@@ -11,16 +11,16 @@
         <div class="data-table body">
             <div class="data-row" v-for="(gasto, index) in gastos" :key="index">
                 <div class="data-id-container">{{ index + 1}}</div>
-                <div class="data-title-container">
+                <div class="data-items-container">
                     {{ gasto.nome }}
                 </div>
-                <div class="data-price-container">
+                <div class="data-items-container">
                     {{ gasto.preco }}
                 </div>
-                <div class="data-type-container">
+                <div class="data-items-container">
                     {{ gasto.tipo }}
                 </div>
-                <div class="data-date-container">
+                <div class="data-items-container">
                     {{ String(gasto.data).slice(0, 10) }}
                 </div>
                 <div class="data-actions-container">
@@ -127,16 +127,11 @@ export default {
         background-color: #C82333;
     }
 
-    .data-price-container,
-    .data-title-container {
+    .data-items-container {
         height: 100%;
         display: flex;
         align-items: center;
         overflow: scroll;
-        margin-right: 10px;
-    }
-
-    .data-type-container {
         margin-right: 10px;
     }
 

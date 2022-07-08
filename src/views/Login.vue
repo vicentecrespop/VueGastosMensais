@@ -1,6 +1,6 @@
 <template>
     <div class="login">
-        <h1>Entrar no Gastos Mensais</h1>
+        <h1>Entrar</h1>
         <LoginForm />
     </div>
 </template>
