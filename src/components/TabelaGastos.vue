@@ -11,10 +11,10 @@
         <div class="data-table body">
             <div class="data-row" v-for="(gasto, index) in gastos" :key="index">
                 <div class="data-id-container">{{ index + 1}}</div>
-                <div class="data-items-container">
+                <div class="data-items-container nome">
                     {{ gasto.nome }}
                 </div>
-                <div class="data-items-container">
+                <div class="data-items-container preco">
                     {{ gasto.preco }}
                 </div>
                 <div class="data-items-container">
@@ -35,9 +35,6 @@
 export default {
     name: 'TabelaGastos',
     props: ['gastos'],
-    created() {
-        this.editarDados()
-    },
     methods: {
         async remove(id) {
             // pegar token do usuario
@@ -67,18 +64,7 @@ export default {
             .catch((err) => console.log(err))
             // APAGAR ANTES DE FINALIZAR
 
-
-        },
-        editarDados() {
-
-            this.gastos.forEach(gasto => {
-                const data = String(gasto.data).slice(0, 10)
-                gasto.data = data.split('-').reverse().join('/')
-
-                const valor = gasto.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
-                gasto.preco = valor.toLocaleString('pt-br', {minimumFractionDigits: 2})
-            })
-        }
+        }        
     }
 }
 </script>
@@ -131,8 +117,13 @@ export default {
         height: 100%;
         display: flex;
         align-items: center;
-        overflow-x: scroll;
         margin-right: 10px;
+    }
+
+    .nome,
+    .preco {
+        overflow-x: scroll;
+
     }
 
     @media (max-width: 700px) {

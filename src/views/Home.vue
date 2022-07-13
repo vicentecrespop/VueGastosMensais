@@ -2,7 +2,7 @@
   <div class="dashboard">
     <div class="title-container">
       <h1 class="title-item">Visualize seus Gastos</h1>
-      <span v-if="total != null" class="title-item" >Total de Gastos: {{ total }}</span>
+      <!-- <span  class="title-item" >Total de Gastos: </span> -->
       <router-link to="/gastos" class="btn title-item">Cadastrar novo Gasto</router-link>
     </div>
     <div class="ver-gasto">
@@ -39,6 +39,9 @@
             <InputSubmit text="Selecionar" />
         </form>
     </div>
+    <div v-if="gastos.length > 0" class="total-tipos">
+        <span v-for="(total, index) in this.totalArray" :key="index" v-show="total.preco != 'R$&nbsp;0,00'">{{ total.nome}} : {{ total.preco }}</span>
+    </div>
     <TabelaGastos v-if="gastos.length > 0" :gastos="gastos"/>
     <div v-if="msg != null">
         {{msg}}
@@ -56,7 +59,15 @@ export default {
     data() {
         return {
             gastos: {},
-            total: null,
+            totalArray: [
+                {nome: 'Total', preco: 0},
+                {nome: 'Alimentação', preco: 0},
+                {nome: 'Entretenimento', preco: 0},
+                {nome: 'Moradia', preco: 0},
+                {nome: 'Roupas', preco: 0},
+                {nome: 'Transporte', preco: 0},
+                {nome: 'Outros', preco: 0}
+            ],
             mes: null,
             ano: null,
             anoAtual: new Date().getFullYear(),
@@ -94,25 +105,41 @@ export default {
             .catch((err) => console.log(err))
             // APAGAR ANTES DE FINALIZAR
             this.getTotal()
+            this.editarDados()
         },
         getTotal() {
-            
-            const gastos = this.gastos
-            let total = 0
-            gastos.forEach((gasto) => {
-                let preco = gasto.preco.slice(2)
-                preco = preco.replace('.', '').replace(',', '.')
-                total += Number(preco)
+        
+            const totais = this.totalArray
+            this.gastos.forEach((gasto) => {
+                totais.forEach((total) => {
+                    typeof(total.preco) == 'string' ? total.preco = 0 : null
+                    if(total.nome == 'Total') {
+                        total.preco += gasto.preco
+                    } else if(total.nome == gasto.tipo) {
+                        total.preco += gasto.preco
+                    }
+                })    
+            })
+            totais.forEach((total) => {
+                const valor = total.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+                const precoTotal = valor.toLocaleString('pt-br', {minimumFractionDigits: 2})
+                total.preco = precoTotal
             })
 
-            const valor = total.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
-            const precoTotal = valor.toLocaleString('pt-br', {minimumFractionDigits: 2})
-
-            this.total = precoTotal
         },
         getGastos() {
             const e = { preventDefault: function() {}}
             this.getGasto(e)
+        },
+        editarDados() {
+
+            this.gastos.forEach(gasto => {
+                const data = String(gasto.data).slice(0, 10)
+                gasto.data = data.split('-').reverse().join('/')
+
+                const valor = gasto.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+                gasto.preco = valor.toLocaleString('pt-br', {minimumFractionDigits: 2})
+            })
         }
     }
 }
@@ -134,6 +161,12 @@ export default {
   .gasto-form {
         max-width: 400px;
         margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
+
+    .total-tipos {
         display: flex;
         flex-direction: column;
         margin-bottom: 40px;
@@ -182,6 +215,22 @@ export default {
       padding: 0 5px;
       margin-bottom: 15px;
       text-align: center;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    background-color: #000;
+    color: #FFF;
+    margin: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: .5s;
+  }
+
+  .btn:hover {
+    background-color: #141619;
   }
 
   @media (max-width: 600px) {

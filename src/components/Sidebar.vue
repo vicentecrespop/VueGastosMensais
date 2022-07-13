@@ -1,5 +1,5 @@
 <template>
-    <div id="sidebar">
+    <div id="sidebar" style="margin-left: -150px;">
         <div class="sidebar-links">
           <router-link to="/" v-show="authenticated">Gastos</router-link>
           <router-link to="/login" v-show="!authenticated">Entrar</router-link>
@@ -33,10 +33,7 @@ export default {
         },
         mostrarLinks() {
             const sidebar = document.getElementById('sidebar')
-            const botao = document.getElementById('nav-button')
-            // sidebar.style.left = sidebar.style.left == '0px' ? '-150px' : '0px'
             sidebar.style.marginLeft = sidebar.style.marginLeft == '-150px' ? '0px' : '-150px'
-            botao.style.left = sidebar.style.marginLeft == '0px' ? '190px' : '40px'
         }
     },
     computed: {
@@ -53,7 +50,6 @@ export default {
         width: 150px;
         grid-area: sidebar;
         transition: 1s;
-        margin-left: -150px;
         display: flex;
     }
 
@@ -73,9 +69,14 @@ export default {
         margin-left: 40px;
     }
 
-    .sidebar-button svg:active {
+    .sidebar-button svg:hover {
         border: 1px solid black;
     }
+
+    .sidebar-button svg:active {
+        padding: 3px;
+    }
+
     .sidebar-links button {
         background-color: black;
         border: 0;

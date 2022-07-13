@@ -32,4 +32,14 @@ export default {
     footer p {
         color: #C1B696;
     }
+
+    @media (max-width: 310px) {
+        footer h3 {
+            font-size: 1rem;
+        }
+
+        footer {
+            font-size: 0.5rem;
+        }
+    }
 </style>

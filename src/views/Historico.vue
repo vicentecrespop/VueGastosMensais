@@ -42,11 +42,22 @@ export default {
             .then((resp) => resp.json())
             .then((data) => {
                 this.gastos = data.gastos
+                this.editarDados()
             })
             .catch((err) => console.log(err))
             // APAGAR ANTES DE FINALIZAR
 
 
+        },
+        editarDados() {
+
+            this.gastos.forEach(gasto => {
+                const data = String(gasto.data).slice(0, 10)
+                gasto.data = data.split('-').reverse().join('/')
+
+                const valor = gasto.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})
+                gasto.preco = valor.toLocaleString('pt-br', {minimumFractionDigits: 2})
+            })
         }
     }
 }
