@@ -100,7 +100,9 @@ export default {
 
 <style scoped>
     #gasto-form {
+        width: 60%;
         max-width: 400px;
+        min-width: 200px;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
