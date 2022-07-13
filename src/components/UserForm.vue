@@ -56,7 +56,7 @@ export default {
 
             const jsonData = JSON.stringify(data)
 
-            await fetch("http://localhost:3000/api/auth/register", {
+            await fetch("https://nodegastosmensais.herokuapp.com/api/auth/register", {
                 method: "POST",
                 headers: { "Content-type": "application/json" },
                 body: jsonData
