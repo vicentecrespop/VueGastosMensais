@@ -3,7 +3,7 @@
     <div class="conteudo">
       <Navbar />
       <Sidebar />
-      <router-view class="container"></router-view>
+      <router-view class="containers"></router-view>
     </div>
     <Footer />
   </div>
@@ -48,10 +48,11 @@ export default {
       
   }
 
-  .container {
+  .containers {
     min-height: 300px;
     grid-area: conteudo;
     margin-top: 80px;
+    width: 100%;
   }
 
   a {

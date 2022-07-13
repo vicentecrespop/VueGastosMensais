@@ -134,18 +134,27 @@ export default {
 
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 470px) {
         .data-container,
         .remove-btn {
-            font-size: 0.3rem;
+            font-size: 0.5rem;
+        }
+
+        .data-id-heading,
+        .data-id-container {
+            max-width: 20px;
+        }
+        .data-items-container {
+            margin-right: 2px;
+            width: 65px;
         }
 
     }
 
-    @media (max-width: 280px) {
+    @media (max-width: 370px) {
         .data-container {
-            width: 230px;
-            margin: auto;
+            width: 300px;
         }
     }
+
 </style>
