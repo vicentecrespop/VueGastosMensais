@@ -74,7 +74,7 @@ export default {
                     this.msgClass = 'success'
 
                     // emitir evento para autenticar usuario
-                    this.$store.commit('authenticate', { token: data.token, userId: data.userId })
+                    // this.$store.commit('authenticate', { token: data.token, userId: data.userId })
                     
                 }
 
@@ -83,7 +83,7 @@ export default {
                         this.msg = null
                     } else {
                         // redirect
-                        this.$router.push('/')
+                        this.$router.push('/login')
                     }
                 }, 2000)
             })
