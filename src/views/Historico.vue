@@ -45,8 +45,6 @@ export default {
                 this.editarDados()
             })
             .catch((err) => console.log(err))
-            // APAGAR ANTES DE FINALIZAR
-
 
         },
         editarDados() {

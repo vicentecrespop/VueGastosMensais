@@ -93,7 +93,6 @@ export default {
         },
         async update(e) {
             e.preventDefault()
-            // console.log('Editando...')
 
             const data = {
                 id: this.id,

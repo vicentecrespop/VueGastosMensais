@@ -103,7 +103,6 @@ export default {
                 }
             })
             .catch((err) => console.log(err))
-            // APAGAR ANTES DE FINALIZAR
             this.getTotal()
             this.editarDados()
         },

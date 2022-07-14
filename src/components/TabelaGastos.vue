@@ -62,7 +62,6 @@ export default {
                  }, 500)
             })
             .catch((err) => console.log(err))
-            // APAGAR ANTES DE FINALIZAR
 
         }        
     }

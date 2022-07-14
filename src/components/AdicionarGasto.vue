@@ -90,7 +90,6 @@ export default {
                 }, 2000)
             })
             .catch((err) => console.log(err)) 
-            // APAGAR ANTES DE FINALIZAR
 
 
         }
