@@ -72,9 +72,6 @@ export default {
                     auth = true
                     this.msg = data.msg
                     this.msgClass = 'success'
-
-                    // emitir evento para autenticar usuario
-                    // this.$store.commit('authenticate', { token: data.token, userId: data.userId })
                     
                 }
 
