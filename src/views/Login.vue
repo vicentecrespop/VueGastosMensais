@@ -9,7 +9,18 @@
 import LoginForm from '@/components/LoginForm.vue';
 
 export default {
-    components: { LoginForm }
+    components: { LoginForm },
+    created() {
+        this.verificarLogado()
+    },
+    methods: {
+        verificarLogado() {
+            const auth = this.$store.getters.authenticated
+            if(auth) {
+                this.$router.push('/')
+            }
+        }
+    }
 }
 </script>
 
