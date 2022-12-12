@@ -63,7 +63,7 @@ export default {
             // pegar token
             const token = this.$store.getters.token
 
-            await fetch('https://nodegastosmensais.herokuapp.com/api/gasto', {
+            await fetch('https://node-gastos-mensais.vercel.app/api/gasto', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json',

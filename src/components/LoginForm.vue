@@ -41,7 +41,7 @@ export default {
 
             const jsonData = JSON.stringify(data)
 
-            await fetch('https://nodegastosmensais.herokuapp.com/api/auth/login', {
+            await fetch('https://node-gastos-mensais.vercel.app/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-type': 'application/json' },
                 body: jsonData

@@ -44,7 +44,7 @@ export default {
 
             const jsonData = JSON.stringify(data)
 
-            await fetch('https://nodegastosmensais.herokuapp.com/api/gasto', {
+            await fetch('https://node-gastos-mensais.vercel.app/api/gasto', {
                 method: 'DELETE',
                 headers: {
                     'Content-type': 'application/json',

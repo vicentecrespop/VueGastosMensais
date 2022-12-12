@@ -56,7 +56,7 @@ export default {
 
             const jsonData = JSON.stringify(data)
 
-            await fetch("https://nodegastosmensais.herokuapp.com/api/auth/register", {
+            await fetch("https://node-gastos-mensais.vercel.app/api/auth/register", {
                 method: "POST",
                 headers: { "Content-type": "application/json" },
                 body: jsonData
@@ -104,7 +104,7 @@ export default {
             // pegar token da store
             const token = this.$store.getters.token
 
-            await fetch("https://nodegastosmensais.herokuapp.com/api/user", {
+            await fetch("https://node-gastos-mensais.vercel.app/api/user", {
                 method: "PATCH",
                 headers: { 
                     "Content-type": "application/json",

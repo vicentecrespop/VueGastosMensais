@@ -84,7 +84,7 @@ export default {
             // pegar token do usuario
             const token = this.$store.getters.token
 
-            await fetch('https://nodegastosmensais.herokuapp.com/api/gasto/mes', {
+            await fetch('https://node-gastos-mensais.vercel.app/api/gasto/mes', {
                 method: 'GET',
                 headers: {
                     'Content-type': 'application/json',

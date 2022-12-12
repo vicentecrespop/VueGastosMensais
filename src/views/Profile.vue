@@ -26,7 +26,7 @@ export default {
             const id = this.$store.getters.userId
             const token = this.$store.getters.token
 
-            await fetch(`https://nodegastosmensais.herokuapp.com/api/user/${id}`, {
+            await fetch(`https://node-gastos-mensais.vercel.app/api/user/${id}`, {
                 method: 'GET',
                 headers: {
                     'Content-type': 'application/json',
